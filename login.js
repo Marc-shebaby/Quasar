@@ -2,17 +2,31 @@
 window.onload=() => {
     const s=document.getElementById("sign")
     const first_div=document.getElementById("white")
-    const sec_div=document.getElementById("pic2")
+    const img_sec=document.getElementById("tohid")
+    const f_img=document.getElementById("img1")
+    const rev=document.getElementById("torev")
+    const login=document.getElementById("sign_2")
+   
     const switch_img=(e) =>{
-        first_div.classList.remove("white")
-        first_div.innerHTML=""
-        sec_div.classList.remove("pic2")
-        sec_div.classList.add("white")
-        sec_div.innerHTML="""<h1>Match up with the energy with tons of people! </h1> <h2> Sign up now</h2>  <input autofocus placeholder='Username' id="name"><br>""
-        <input type="password" id="pass" class="form__input" autofocus placeholder="Password">
-        <br>
-        <button class="form__button" type="submit">Continue</button>" 
-        first_div.classList.add("pic2")
+        first_div.style.display='none'
+        f_img.style.display='block'
+        
+        img_sec.style.display='none'
+        rev.style.display='block'
+       
+        
+        
+    
+    }
+    const switch_login=(e)=>{
+        first_div.style.display='block'
+        f_img.style.display='none'
+       
+        img_sec.style.display='block'
+        rev.style.display='none'
+        
     }
     s.addEventListener("click",switch_img)
+    login.addEventListener("click",switch_login)
+
 }
