@@ -1,3 +1,4 @@
+const base_url = "http://localhost/?";
 
 window.onload=() => {
     const s=document.getElementById("sign")
@@ -29,4 +30,24 @@ window.onload=() => {
     s.addEventListener("click",switch_img)
     login.addEventListener("click",switch_login)
 
+}
+
+const workshop_pages = {};
+workshop_pages.loadFor = (page) => {
+    eval("workshop_pages.load_" + page + "();");
+}
+workshop_pages.postAPI = async (api_url, api_data, api_token = null) => {
+    try{
+        return await axios.post(
+            api_url,
+            api_data,
+            {
+                headers:{
+                    'Authorization' : "token " + api_token
+                }
+            }
+        );
+    }catch(error){
+        workshop_pages.Console("Error from Linking (POST)", error);
+    }
 }
